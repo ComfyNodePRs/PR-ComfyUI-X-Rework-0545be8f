@@ -2,12 +2,15 @@ import { app } from "../../scripts/app.js";
 
 function make_submenu(value, options, e, menu, node) {
     const submenu = new LiteGraph.ContextMenu(
-        ["star on Github", "option 2",],
+        ["Visit on Github", "Donate on Ko-Fi",],
         { 
             event: e, 
             callback: function (v) { 
-                if(v == "option 1"){
-                    window.open("https://www.w3schools.com"); 
+                if(v == "Visit on Github"){
+                    window.open("https://github.com/Blonicx/ComfyUI-X-Rework");
+                }
+                else if(v == "Donate on Ko-Fi"){
+                    window.open("https://ko-fi.com/blonicx");
                 }
                 else{
                     alert("Not Implemented yet.")
@@ -34,7 +37,5 @@ app.registerExtension({
             })
             return options;
         }
-
-		alert("Setup complete!")
 	},
 })
