@@ -10,4 +10,4 @@ Repository = "https://github.com/Blonicx/ComfyUI-X-Rework"
 [tool.comfy]
 PublisherId = "blonicx"
 DisplayName = "ComfyUI-X-Rework"
-Icon = "./assets/Logo.png"
+Icon = "./assets/img/Logo.png"
