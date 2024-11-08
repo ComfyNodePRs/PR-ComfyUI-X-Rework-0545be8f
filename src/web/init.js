@@ -29,7 +29,7 @@ app.registerExtension({
         LGraphCanvas.prototype.getCanvasMenuOptions = function () {
             // get the basic options 
             const options = original_getCanvasMenuOptions.apply(this, arguments);
-            options.push(null); // inserts a divider
+            options.push(null);
             options.push({
                 content: "X-Rework",
                 has_submenu: true,

@@ -1,6 +1,8 @@
 from .Lora import LoRA
 from .Dataset import ImageDataset
 
+import os
+from transformers import AutoTokenizer, AutoModel  
 from safetensors.torch import save_file
 from torch import nn
 
@@ -23,7 +25,8 @@ def safestore_lora(unet, path="safestore_lora.safetensors"):
     # Save the weights using Safetensors format
     save_file(lora_state_dict, path)
     print(f"LoRA weights saved to {path}")
-    
+
+# Function to auto-detect and set batch size based on dataset size
 def auto_detect_batch_size(dataset_path, max_batch_size=32):
     # Count the number of images in the dataset
     dataset = ImageDataset(dataset_path)
@@ -37,3 +40,16 @@ def auto_detect_batch_size(dataset_path, max_batch_size=32):
     
     print(f"Total images: {num_images}, Setting batch size to: {batch_size}")
     return batch_size
+
+# Function to load tokenizer and model
+def load_models(models_path):
+    tokenizer_path = os.path.join(models_path, "tokenizer")
+    model_path = os.path.join(models_path, "base_model")
+    
+    # Load tokenizer
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
+    # Load base model
+    model = AutoModel.from_pretrained(model_path)
+    
+    print("Models loaded successfully!")
+    return tokenizer, model

@@ -2,6 +2,7 @@ __pycache__/
 src/py/training/__pycache__
 src/py/training/Trainer/__pycache__
 src/py/utils/__pycache__
+src/py/img/__pycache__
 src/py/Vid2Vid/__pycache__
 *.py[cod]
 *$py.class
