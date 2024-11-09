@@ -1,7 +1,7 @@
 ## Todo
 
 ### Main
-- [ ] Improve Error Handler
+- [X] Improve Error Handler
 - [ ] Include Errors in Code
 - [ ] LoggingHandler
 
