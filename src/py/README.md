@@ -3,6 +3,7 @@
 ### Main
 - [ ] Improve Error Handler
 - [ ] Include Errors in Code
+- [ ] LoggingHandler
 
 ### Training
 - [ ] Fix existing Bugs
@@ -14,6 +15,9 @@
 - [x] ClearNode
 - [x] UploadImage (DISCORD)
 - [ ] Custom Saving Node
+
+### Sampler
+[ ] XSampler
 
 ### Vid2Vid
 - [ ] Pre-Made Workflow

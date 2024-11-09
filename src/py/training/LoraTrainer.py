@@ -32,7 +32,7 @@ class LoraTrainer:
             }
         }
 
-    CATEGORY = 'comfy-rework/training'
+    CATEGORY = 'rework-x/training'
 
     RETURN_TYPES = ()
     FUNCTION = "train_lora"

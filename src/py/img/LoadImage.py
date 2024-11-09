@@ -19,7 +19,7 @@ class LoadImageURL:
                     {"url": ("STRING", {"default" : ""}),}
                 }
 
-    CATEGORY = 'comfy-rework/image'
+    CATEGORY = 'rework-x/image'
     
     RETURN_TYPES = ("IMAGE", "MASK")
     FUNCTION = "load_image"

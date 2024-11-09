@@ -47,7 +47,7 @@ class ClearNode:
             }
         }
 
-    CATEGORY = 'comfy-rework/utils'
+    CATEGORY = 'rework-x/utils'
 
     RETURN_TYPES = ()
     FUNCTION = "clear"

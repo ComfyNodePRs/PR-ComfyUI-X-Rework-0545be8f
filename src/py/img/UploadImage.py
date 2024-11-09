@@ -28,7 +28,7 @@ class UploadImage:
             }
         }
     
-    CATEGORY = 'comfy-rework/image'
+    CATEGORY = 'rework-x/image'
     
     RETURN_TYPES = ()
     FUNCTION = "upload_image"
