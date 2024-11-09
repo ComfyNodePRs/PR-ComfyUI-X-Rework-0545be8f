@@ -7,8 +7,9 @@ import numpy as np
 
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
-
 from comfy.cli_args import args
+
+from ..ErrorHandler import ErrorHandler
 
 class UploadImage:
     def __init__(self):
@@ -64,6 +65,10 @@ class UploadImage:
                 requests.post(webhook_url, files=files)
                 
                 file.close()
+        
+        except Exception as e:
+            ErrorHandler().handle_error("image", f"Error sending image to {webhook_url}.")
+            return (None, )
         
         finally:
             os.remove(img_path)
