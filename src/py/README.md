@@ -13,11 +13,14 @@
 ### Nodes
 - [x] LoadImage (URL)
 - [x] ClearNode
-- [x] UploadImage (DISCORD)
 - [ ] Custom Saving Node
 
+### Discord
+- [x] UploadImage (DISCORD-WEBHOOK)
+- [ ] UploadImage (DISCORD-BOT)
+
 ### Sampler
-[ ] XSampler
+- [ ] XSampler
 
 ### Vid2Vid
 - [ ] Pre-Made Workflow

@@ -21,7 +21,7 @@ class LoadImageURL:
                     {"url": ("STRING", {"default" : ""}),}
                 }
 
-    CATEGORY = 'rework-x/image'
+    CATEGORY = 'x-rework/image'
     
     RETURN_TYPES = ("IMAGE", "MASK")
     FUNCTION = "load_image"

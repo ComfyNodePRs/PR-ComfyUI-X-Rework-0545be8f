@@ -58,7 +58,7 @@ class XSampler:
     OUTPUT_TOOLTIPS = ("The denoised latent.",)
     FUNCTION = "sample"
 
-    CATEGORY = 'rework-x/sampler'
+    CATEGORY = 'x-rework/sampler'
 
     def sample(self, model, clip, sampler_name, scheduler, positive, negative, latent_image, denoise=1.0):
         return x_sampler(model, clip, sampler_name, scheduler, positive, negative, latent_image, denoise=denoise)

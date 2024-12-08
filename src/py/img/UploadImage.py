@@ -29,7 +29,7 @@ class UploadImage:
             }
         }
     
-    CATEGORY = 'rework-x/image'
+    CATEGORY = 'x-rework/image'
     
     RETURN_TYPES = ()
     FUNCTION = "upload_image"
