@@ -54,34 +54,41 @@ class UploadImage:
                             metadata.add_text(x, json.dumps(extra_pnginfo[x]))
 
                 file = None
+                results = list()
                 
                 if save_image:
-                    file = f'image_{str(time.time())}'
+                    file = f'image_{str(time.time())}.png'
+                    results.append({
+                        "filename": file,
+                        "subfolder": subfolder,
+                        "type": self.type
+                    })
                 else:
                     file = f"temp_file.png"
-                    
+                
                 img_path = os.path.join(full_output_folder, file)
                 img.save(img_path, pnginfo=metadata, compress_level=self.compress_level)
 
                 file = open(img_path, 'rb')
 
+                data = {
+                    'username': "X-Rework"
+                }
+
                 files = {
                     'media': file
                 }
 
-                requests.post(webhook_url, files=files)
+                requests.post(webhook_url, json=data, files=files)
                 
                 file.close()
         
         except Exception as e:
             ErrorHandler().handle_error("image", f"Error sending image to {webhook_url}.")
+            print(e)
             return (None, )
         
         finally:
-            if not save_image:
-                os.remove(img_path)
-            else: pass
-            
-            
-            
-        return ()
+            if save_image:
+                return { "ui": { "images": results }}
+            else: os.remove(img_path); return { "ui": { "images": None }}
