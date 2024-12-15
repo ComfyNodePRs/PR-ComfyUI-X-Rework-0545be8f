@@ -40,8 +40,8 @@ class ClearNode:
                 "anything": (any, {}),
                 "clear_cache": ("BOOLEAN", {"default": True}),
                 "clear_models": ("BOOLEAN", {"default": True}),
-                "clear_input_dir": ("BOOLEAN", {"default": True}),
-                "clear_output_dir": ("BOOLEAN", {"default": True}),        
+                "clear_input_dir": ("BOOLEAN", {"default": False}),
+                "clear_output_dir": ("BOOLEAN", {"default": False}),        
             },
             "optional": {
             }

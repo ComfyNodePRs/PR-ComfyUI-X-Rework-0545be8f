@@ -1,7 +1,8 @@
 __pycache__/
-src/py/utils/__pycache__
-src/py/img/__pycache__
-src/py/Vid2Vid/__pycache__
+src/main/py/utils/__pycache__
+src/main/py/img/__pycache__
+src/main/py/Vid2Vid/__pycache__
+src/test
 *.py[cod]
 *$py.class
 

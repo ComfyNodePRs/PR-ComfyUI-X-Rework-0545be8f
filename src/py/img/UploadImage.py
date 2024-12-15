@@ -23,6 +23,7 @@ class UploadImage:
         return {
             "required": {
                 "images": ("IMAGE", {"tooltip": "The images to save."}),
+                "save_image": ("BOOLEAN", {"default": False}),
                 "webhook_url": ("STRING", {"default" : ""}),
             },
             "optional": {
@@ -36,7 +37,7 @@ class UploadImage:
     
     OUTPUT_NODE = True    
     
-    def upload_image(self, images, webhook_url, filename_prefix="temp", prompt=None, extra_pnginfo=None):
+    def upload_image(self, images, save_image, webhook_url, filename_prefix="temp", prompt=None, extra_pnginfo=None):
         try:
             filename_prefix += self.prefix_append
             full_output_folder, filename, counter, subfolder, filename_prefix = folder_paths.get_save_image_path(filename_prefix, self.output_dir, images[0].shape[1], images[0].shape[0])
@@ -52,7 +53,13 @@ class UploadImage:
                         for x in extra_pnginfo:
                             metadata.add_text(x, json.dumps(extra_pnginfo[x]))
 
-                file = f"temp_file.png"
+                file = None
+                
+                if save_image:
+                    file = f'image_{str(time.time())}'
+                else:
+                    file = f"temp_file.png"
+                    
                 img_path = os.path.join(full_output_folder, file)
                 img.save(img_path, pnginfo=metadata, compress_level=self.compress_level)
 
@@ -71,6 +78,10 @@ class UploadImage:
             return (None, )
         
         finally:
-            os.remove(img_path)
+            if not save_image:
+                os.remove(img_path)
+            else: pass
+            
+            
             
         return ()

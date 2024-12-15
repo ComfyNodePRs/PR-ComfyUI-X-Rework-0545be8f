@@ -1,8 +1,8 @@
-from .src.py.utils.ClearNode import ClearNode
-from .src.py.img.LoadImage import LoadImageURL
-from .src.py.img.UploadImage import UploadImage
-from .src.py.img.SaveImage import XSave
-from .src.py.sampler.XSampler import XSampler
+from .src.main.py.utils.ClearNode import ClearNode
+from .src.main.py.img.LoadImage import LoadImageURL
+from .src.main.py.img.UploadImage import UploadImage
+from .src.main.py.img.SaveImage import XSave
+from .src.main.py.sampler.XSampler import XSampler
 
 def LoadDevModels():
     pass
