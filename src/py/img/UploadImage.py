@@ -71,21 +71,16 @@ class UploadImage:
 
                 file = open(img_path, 'rb')
 
-                data = {
-                    'username': "X-Rework"
-                }
-
                 files = {
                     'media': file
                 }
 
-                requests.post(webhook_url, json=data, files=files)
+                requests.post(webhook_url, files=files)
                 
                 file.close()
         
         except Exception as e:
             ErrorHandler().handle_error("image", f"Error sending image to {webhook_url}.")
-            print(e)
             return (None, )
         
         finally:

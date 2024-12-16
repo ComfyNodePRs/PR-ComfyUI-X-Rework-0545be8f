@@ -41,7 +41,7 @@ class ErrorHandler:
         """
         error_classes = {
             "model": self.Errors.ModelError,
-            "training": self.Errors.TrainingError,
+            "utils": self.Errors.UtilsError,
             "image": self.Errors.ImageError,
             "unknown": self.Errors.UnknownError
         }
@@ -76,14 +76,13 @@ class ErrorHandler:
             """Raised when the Node misses a Model."""
             pass
         
-        class TrainingError(Exception):
-            """Raised when an error happens in the Model Training."""
-            pass
-        
         class ImageError(Exception):
             """Raised when an error happens while loading an Image."""
             pass
-
+        
+        class UtilsError(Exception):
+            """Raised when an error happens in a UtilsNode."""
+            pass
         class UnknownError(Exception):
             """Raised when an unknown error occurs."""
             pass

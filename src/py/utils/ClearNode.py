@@ -5,6 +5,7 @@ import os
 import comfy.model_management
 
 from ..Utils import AnyType
+from ..ErrorHandler import ErrorHandler
 
 input_dir = folder_paths.get_input_directory()
 output_dir = folder_paths.get_output_directory()
@@ -55,17 +56,22 @@ class ClearNode:
     OUTPUT_NODE = True
 
     def clear(self, anything, clear_cache, clear_models, clear_input_dir, clear_output_dir):
-        if clear_cache:
-            clear_memory()
+        try:
+            if clear_cache:
+                clear_memory()
+                
+            if clear_models:
+                comfy.model_management.unload_all_models()
+                comfy.model_management.soft_empty_cache()
             
-        if clear_models:
-            comfy.model_management.unload_all_models()
-            comfy.model_management.soft_empty_cache()
-        
-        if clear_input_dir:
-            clear_input()
-            
-        if clear_output_dir:
-            clear_output()
+            if clear_input_dir:
+                clear_input()
+                
+            if clear_output_dir:
+                clear_output()
+                
+        except Exception as e:
+            ErrorHandler().handle_error("utils", f"Error Clearing Cache.")
+            return (None, )
         
         return (None,)
