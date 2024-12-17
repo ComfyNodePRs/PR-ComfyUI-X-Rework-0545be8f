@@ -79,7 +79,7 @@ class UploadImage:
                 
                 file.close()
         
-        except Exception as e:
+        except Exception:
             ErrorHandler().handle_error("image", f"Error sending image to {webhook_url}.")
             return (None, )
         

@@ -70,7 +70,7 @@ class ClearNode:
             if clear_output_dir:
                 clear_output()
                 
-        except Exception as e:
+        except Exception:
             ErrorHandler().handle_error("utils", f"Error Clearing Cache.")
             return (None, )
         

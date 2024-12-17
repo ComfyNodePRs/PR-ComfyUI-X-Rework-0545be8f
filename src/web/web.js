@@ -2,14 +2,14 @@ import { app } from "../../scripts/app.js";
 
 function make_submenu(value, options, e, menu, node) {
     const submenu = new LiteGraph.ContextMenu(
-        ["Visit on Github", "Donate on Ko-Fi",],
+        ["⭐Visit on Github⭐", "❤️Donate on Ko-F❤️i",],
         { 
             event: e, 
             callback: function (v) { 
-                if(v == "Visit on Github"){
+                if(v == "⭐Visit on Github⭐"){
                     window.open("https://github.com/Blonicx/ComfyUI-X-Rework");
                 }
-                else if(v == "Donate on Ko-Fi"){
+                else if(v == "❤️Donate on Ko-Fi❤️"){
                     window.open("https://ko-fi.com/blonicx");
                 }
                 else{
@@ -27,7 +27,6 @@ app.registerExtension({
 	async setup() {
         const original_getCanvasMenuOptions = LGraphCanvas.prototype.getCanvasMenuOptions;
         LGraphCanvas.prototype.getCanvasMenuOptions = function () {
-            // get the basic options 
             const options = original_getCanvasMenuOptions.apply(this, arguments);
             options.push(null);
             options.push({

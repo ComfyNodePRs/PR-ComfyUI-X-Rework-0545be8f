@@ -78,7 +78,7 @@ class LoadImageURL:
                 output_image = output_images[0]
                 output_mask = output_masks[0]
 
-        except Exception as e:
+        except Exception:
             ErrorHandler().handle_error("image", f"Error loading image from {url}.")
             return (None, )
 

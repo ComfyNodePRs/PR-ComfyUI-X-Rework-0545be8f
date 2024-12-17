@@ -74,6 +74,6 @@ class XSave:
 
             return { "ui": { "images": results } }
         
-        except Exception as e:
+        except Exception:
             ErrorHandler().handle_error("image", f"Error saving image to {sub_path}.")
             return (None, )
